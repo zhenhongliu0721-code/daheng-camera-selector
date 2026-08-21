@@ -3,344 +3,252 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Vision Select V6｜机器视觉工程选型助手</title>
+<title>Vision Select V8</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#f5f7fa;color:#172033;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",Arial,sans-serif}
-button,input,select{font:inherit}
-button{cursor:pointer}
-.header{background:#101828;color:#fff;padding:16px}
-.header-in{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:15px}
-.logo b{font-size:19px}.logo span{display:block;color:#aab4c3;font-size:12px;margin-top:3px}
-.mode{display:flex;background:#1d2939;padding:4px;border-radius:10px}
-.mode button{border:0;background:transparent;color:#d0d5dd;padding:8px 14px;border-radius:8px}
-.mode button.active{background:#fff;color:#101828;font-weight:700}
-.wrap{max-width:1180px;margin:20px auto;padding:0 14px}
-.hero{background:linear-gradient(135deg,#101828,#194185);color:#fff;border-radius:18px;padding:24px;margin-bottom:16px}
-.hero h1{margin:0 0 6px;font-size:26px}.hero p{margin:0;color:#d0d5dd}
-.layout{display:grid;grid-template-columns:350px 1fr;gap:16px}
-.card{background:#fff;border:1px solid #e4e7ec;border-radius:15px;padding:17px;box-shadow:0 5px 20px rgba(16,24,40,.05)}
-.card h2{font-size:18px;margin:0 0 14px}
-.field{margin:11px 0}.field label{display:block;color:#667085;font-size:13px;margin-bottom:6px}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:9px}.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px}
-.input,.select{width:100%;padding:10px;border:1px solid #d0d5dd;border-radius:8px;background:#fff;outline:0}
-.input:focus,.select:focus{border-color:#1677ff;box-shadow:0 0 0 3px rgba(22,119,255,.1)}
-.primary{width:100%;border:0;border-radius:9px;padding:11px;background:#1677ff;color:#fff;font-weight:700;margin-top:6px}
-.secondary{width:100%;border:1px solid #d0d5dd;border-radius:9px;padding:10px;background:#fff;margin-top:8px}
-.small{font-size:12px;color:#667085;line-height:1.6}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
-.stat{background:#f8fafc;border:1px solid #eaecf0;border-radius:10px;padding:11px}
-.stat small{display:block;color:#667085}.stat b{display:block;font-size:18px;margin-top:4px}
-.result{margin-top:16px}
-.rec{border:1px solid #e4e7ec;border-radius:13px;padding:14px;margin-top:10px}
-.rec.best{border:2px solid #84adff;background:#f8fbff}
-.rec-head{display:flex;justify-content:space-between;gap:12px}
-.rec h3{margin:4px 0;font-size:16px}.score{font-size:22px;font-weight:800;color:#1677ff}
-.tag{display:inline-block;font-size:11px;padding:4px 7px;border-radius:999px;background:#eef4ff;color:#175cd3;margin-right:5px}
-.tag.ok{background:#ecfdf3;color:#067647}.tag.warn{background:#fffaeb;color:#b54708}
-.kv{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:10px}
-.kv div{background:#f8fafc;border-radius:7px;padding:8px}.kv small{display:block;color:#667085;font-size:11px}.kv b{display:block;margin-top:3px;font-size:13px}
-.tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}.tabs button{border:1px solid #e4e7ec;background:#fff;border-radius:8px;padding:8px 11px}.tabs button.active{background:#eef4ff;color:#175cd3;border-color:#b2ccff}
-.tablewrap{overflow:auto;border:1px solid #e4e7ec;border-radius:10px}.table{width:100%;border-collapse:collapse;min-width:720px;font-size:12px}.table th,.table td{padding:9px;border-bottom:1px solid #eaecf0;text-align:left;white-space:nowrap}.table th{background:#f8fafc;color:#475467}
-.notice{background:#fffaeb;border:1px solid #fedf89;border-radius:9px;padding:10px;color:#92400e;font-size:12px;line-height:1.6}
-.hidden{display:none!important}
-@media(max-width:850px){.layout{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.header-in{flex-direction:column;align-items:flex-start}.kv{grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.row,.row3,.kv{grid-template-columns:1fr}.wrap{padding:0 9px}}
+*{box-sizing:border-box}body{margin:0;background:#f4f6f8;color:#172033;font-family:Arial,"Microsoft YaHei",sans-serif}.top{background:#101828;color:#fff;padding:14px}.topin,.wrap{max-width:1200px;margin:auto}.topin{display:flex;justify-content:space-between;align-items:center}.brand b{font-size:20px}.brand span{display:block;color:#98a2b3;font-size:12px;margin-top:3px}.modes button{border:0;border-radius:8px;padding:9px 13px;background:#1d2939;color:#fff}.modes .on{background:#fff;color:#101828}.wrap{padding:18px 12px}.hero{background:#164c8f;color:#fff;padding:20px;border-radius:14px;margin-bottom:14px}.hero h1{margin:0 0 5px;font-size:24px}.grid{display:grid;grid-template-columns:360px 1fr;gap:14px}.card{background:#fff;border:1px solid #e4e7ec;border-radius:12px;padding:15px;margin-bottom:14px}.card h2{font-size:17px;margin:0 0 12px}.field{margin:9px 0}.field label{display:block;font-size:12px;color:#667085;margin-bottom:5px}.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.input,.select{width:100%;padding:9px;border:1px solid #d0d5dd;border-radius:8px;background:#fff}.btn{width:100%;padding:10px;border-radius:8px;margin-top:7px;cursor:pointer}.primary{background:#1677ff;border:0;color:#fff}.secondary{background:#fff;border:1px solid #d0d5dd}.switch{display:flex;gap:6px}.switch button{flex:1;padding:8px;border:1px solid #d0d5dd;background:#fff;border-radius:8px;cursor:pointer}.switch .on{background:#eef4ff;border-color:#84adff;color:#175cd3}.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.stat{background:#f8fafc;padding:9px;border-radius:8px}.stat small{color:#667085}.stat b{display:block;margin-top:4px}.rec{border:1px solid #e4e7ec;border-radius:10px;padding:12px;margin-top:9px}.best{border:2px solid #84adff;background:#f8fbff}.tag{display:inline-block;padding:3px 7px;border-radius:10px;background:#eef4ff;color:#175cd3;font-size:10px;margin-right:4px}.ok{background:#ecfdf3;color:#067647}.warn{background:#fffaeb;color:#b54708}.bad{background:#fef3f2;color:#b42318}.kv{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}.kv div{background:#f8fafc;padding:7px;border-radius:6px}.kv small{display:block;color:#667085;font-size:10px}.kv b{font-size:12px}.small{font-size:12px;color:#667085;line-height:1.6}.notice{padding:9px;border-radius:8px;background:#fffaeb;border:1px solid #fedf89;color:#92400e;font-size:12px;line-height:1.5}.danger{background:#fef3f2;border-color:#fecdca;color:#b42318}.hidden{display:none}.tabs{display:flex;gap:6px;flex-wrap:wrap}.tabs button{padding:7px 10px;border:1px solid #e4e7ec;background:#fff;border-radius:8px}.tabs .on{background:#eef4ff;color:#175cd3}.tablewrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:900px;font-size:11px}.table th,.table td{padding:8px;border-bottom:1px solid #eaecf0;text-align:left;white-space:nowrap}
+@media(max-width:850px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.topin{display:block}.modes{margin-top:9px}.kv{grid-template-columns:1fr 1fr}}@media(max-width:480px){.row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<header class="header">
-<div class="header-in">
-<div class="logo"><b>Vision Select V6</b><span>机器视觉工程选型助手 · 非官方工具</span></div>
-<div class="mode">
-<button id="simpleMode" class="active">简约快速选型</button>
-<button id="proMode">专业版</button>
-</div>
-</div>
-</header>
-
+<header class="top"><div class="topin"><div class="brand"><b>Vision Select V8</b><span>机器视觉相机 / 镜头工程初选 · 非官方工具</span></div><div class="modes"><button id="simple" class="on">简约快速选型</button> <button id="pro">专业版</button></div></div></header>
 <main class="wrap">
-<section class="hero">
-<h1 id="title">简约快速选型</h1>
-<p id="subtitle">支持视野公差。程序优先寻找“能够覆盖目标且最接近目标视野”的相机与镜头组合。</p>
-</section>
+<section class="hero"><h1 id="modeTitle">简约快速选型</h1><div>先计算“需要什么”，再匹配数据库型号。数据库没有对应型号时，仍输出理论焦距/倍率。</div></section>
+<div class="grid">
+<aside>
+<div id="simplePanel" class="card">
+<h2>需求输入</h2>
+<div class="field"><label>产品实际尺寸 / 目标视野（mm）</label><div class="row"><input id="w" class="input" type="number" value="20" step=".01"><input id="h" class="input" type="number" value="10" step=".01"></div></div>
+<div class="field"><label>每边视野预留余量（mm）</label><input id="margin" class="input" type="number" value="0" min="0" max="20" step=".1"></div>
+<div class="field"><label>视野公差</label><select id="tol" class="select"><option value=".05">±5%</option><option value=".1" selected>±10%</option><option value=".15">±15%</option><option value=".2">±20%</option></select></div>
+<div class="field"><label>工作距离 WD（mm）</label><input id="wd" class="input" type="number" value="250" min="1"></div>
+<div class="field"><label>目标像素精度（mm/pixel）</label><input id="acc" class="input" type="number" value=".005" step=".0001" min=".000001"></div>
+<div class="field"><label>工程安全系数</label><input id="sf" class="input" type="number" value="1.5" min="1" max="3" step=".1"></div>
+<div class="field"><label>镜头通道</label><div class="switch"><button id="fixed" class="on">普通定焦（优先）</button><button id="tele">远心</button></div></div>
+<div class="field"><label>相机</label><select id="cam" class="select"><option value="auto">自动选相机</option></select></div>
+<div class="field"><label>工件高度差（mm，可选）</label><input id="height" class="input" type="number" value="0" min="0"></div>
+<div class="field"><label>飞拍速度（mm/s，可选）</label><input id="speed" class="input" type="number" value="0" min="0"></div>
+<button id="calc" class="btn primary">开始计算</button>
+<button id="example" class="btn secondary">加载案例：1200万 / 20×10 / WD250</button>
+</div>
 
-<div class="layout">
-<aside class="card" id="simplePanel">
-<h2>项目需求</h2>
-<div class="field"><label>目标视野 FOV（mm）</label><div class="row">
-<input id="fovW" class="input" type="number" value="20" min=".1" step=".1">
-<input id="fovH" class="input" type="number" value="10" min=".1" step=".1">
-</div></div>
-<div class="field"><label>视野公差</label><select id="tolerance" class="select">
-<option value="0.05">±5%</option>
-<option value="0.10" selected>±10%</option>
-<option value="0.15">±15%</option>
-<option value="0.20">±20%</option>
-</select></div>
-<div class="field"><label>镜头到产品距离 WD（mm）</label><input id="wd" class="input" type="number" value="250" min="1"></div>
-<div class="field"><label>目标像素精度（mm/pixel）</label><input id="precision" class="input" type="number" value=".005" min=".0001" step=".0001"></div>
-<div class="field"><label>检测类型</label><select id="task" class="select">
-<option value="measure">尺寸测量</option><option value="position">定位/有无</option><option value="defect">表面缺陷</option><option value="ocr">字符/OCR</option>
-</select></div>
-<div class="field"><label>镜头类型</label><select id="lensType" class="select">
-<option value="all">自动判断</option><option value="fixed">普通定焦</option><option value="telecentric">远心/倍率</option>
-</select></div>
-<button class="primary" id="quickCalc">开始快速选型</button>
-<button class="secondary" id="caseBtn">加载案例：20×10 / WD250</button>
-</aside>
-
-<aside class="card hidden" id="proPanel">
-<h2>专业选型</h2>
-<div class="row">
-<div class="field"><label>目标 FOV 宽（mm）</label><input id="pFovW" class="input" value="20" type="number" step=".1"></div>
-<div class="field"><label>目标 FOV 高（mm）</label><input id="pFovH" class="input" value="10" type="number" step=".1"></div>
+<div id="proPanel" class="card hidden">
+<h2>专业版</h2>
+<div class="field"><label>镜头通道</label><div class="switch"><button id="pf" class="on">普通定焦</button><button id="pt">远心</button></div></div>
+<div class="row"><div class="field"><label>目标视野宽 mm</label><input id="pw" class="input" value="20" type="number" step=".01"></div><div class="field"><label>目标视野高 mm</label><input id="ph" class="input" value="10" type="number" step=".01"></div></div>
+<div class="row"><div class="field"><label>每边余量 mm</label><input id="pm" class="input" value="0" type="number" step=".1"></div><div class="field"><label>FOV公差</label><select id="ptol" class="select"><option value=".05">±5%</option><option value=".1" selected>±10%</option><option value=".15">±15%</option></select></div></div>
+<div class="field" id="pwdField"><label>WD mm</label><input id="pwd" class="input" value="250" type="number"></div>
+<div class="row"><div class="field"><label>目标mm/pixel</label><input id="pacc" class="input" value=".005" type="number" step=".0001"></div><div class="field"><label>安全系数</label><input id="psf" class="input" value="1.5" type="number" step=".1"></div></div>
+<div class="row"><div class="field"><label>高度差mm</label><input id="phd" class="input" value="0" type="number"></div><div class="field"><label>速度mm/s</label><input id="pspeed" class="input" value="0" type="number"></div></div>
+<div class="field"><label>品牌过滤</label><select id="brandFilter" class="select"><option value="all">全部</option></select></div>
+<div class="field"><label>指定相机</label><select id="pcam" class="select"><option value="auto">自动</option></select></div>
+<button id="pcalc" class="btn primary">专业计算</button>
 </div>
-<div class="field"><label>视野公差</label><select id="pTol" class="select">
-<option value=".05">±5%</option><option value=".10" selected>±10%</option><option value=".15">±15%</option><option value=".20">±20%</option>
-</select></div>
-<div class="row">
-<div class="field"><label>WD（mm）</label><input id="pWd" class="input" value="250" type="number"></div>
-<div class="field"><label>目标精度（mm/pixel）</label><input id="pPrec" class="input" value=".005" type="number" step=".0001"></div>
-</div>
-<div class="row">
-<div class="field"><label>指定相机</label><select id="cameraSelect" class="select"><option value="all">自动选择</option></select></div>
-<div class="field"><label>镜头类型</label><select id="pLensType" class="select"><option value="all">全部</option><option value="fixed">普通定焦</option><option value="telecentric">远心/倍率</option></select></div>
-</div>
-<div class="notice">视野允许公差，但实际可用视野必须覆盖产品需求；视野越接近目标且有合理余量，排序越靠前。</div>
-<button class="primary" id="proCalc">专业计算并筛选</button>
 </aside>
 
 <section class="card">
-<div class="stats">
-<div class="stat"><small>最低水平像素</small><b id="needW">—</b></div>
-<div class="stat"><small>最低垂直像素</small><b id="needH">—</b></div>
-<div class="stat"><small>允许FOV</small><b id="range">—</b></div>
-<div class="stat"><small>状态</small><b id="status">待计算</b></div>
-</div>
-<div class="result"><h2>推荐方案</h2><div id="results"><div class="small">输入参数后点击“开始快速选型”。</div></div></div>
+<div class="stats"><div class="stat"><small>实际选型FOV</small><b id="fov">—</b></div><div class="stat"><small>最低像素需求</small><b id="needpx">—</b></div><div class="stat"><small>理论像素当量</small><b id="pix">—</b></div><div class="stat"><small>工程参考</small><b id="eng">—</b></div><div class="stat"><small>结果</small><b id="status">待计算</b></div></div>
+<h2 style="margin:16px 0 8px">计算结果</h2><div id="results"><div class="small">输入需求后点击计算。</div></div>
 </section>
 </div>
 
-<section class="card" id="proDetails" style="margin-top:16px">
-<div class="tabs">
-<button class="active" data-tab="cameras">相机数据库</button>
-<button data-tab="lenses">镜头数据库</button>
-<button data-tab="formulas">视觉常用公式</button>
-<button data-tab="rules">型号解析规则</button>
-<button data-tab="statement">声明与来源</button>
-</div>
-<div id="tabContent"></div>
+<section class="card">
+<div class="tabs"><button class="on" data-t="camera">相机</button><button data-t="lens">镜头</button><button data-t="formula">公式</button><button data-t="check">校验</button><button data-t="custom">自定义镜头</button><button data-t="about">声明/来源</button></div>
+<div id="tab"></div>
 </section>
 </main>
 
 <script>
 "use strict";
+const cameras=[
+["MER2-200-6GM","大恒",1600,1200,7.78,5.83,.00486,2,"1/1.8","GigE","Global"],
+["MER2-630-60U3M","大恒",3088,2064,7.41,4.95,.00240,6.3,"1/1.8","USB3","Global"],
+["MER2-630-60GM","大恒",3088,2064,7.41,4.95,.00240,6.3,"1/1.8","GigE","Global"],
+["MER2-1220-6GM","大恒",4096,3000,13.11,9.60,.00320,12,"1.1","GigE","Global"],
+["MER2-2000-6GM","大恒",5496,3672,13.19,8.81,.00240,20,"1.1","GigE","Global"],
+["ME2P-1230-23U3C","大恒",4096,3000,14.12,10.35,.00345,12.3,"1.1","USB3","Global"],
+["DH-VSDCA-S1220GM","大恒",4096,3000,13.20,8.80,.00322,12,"1.1","GigE","Global"],
+["DH-VSDCA-S2000GM","大恒",5472,3648,17.00,11.30,.00311,20,"1.1","GigE","Global"]
+].map(a=>({m:a[0],brand:a[1],px:a[2],py:a[3],sw:a[4],sh:a[5],pitch:a[6],mp:a[7],fmt:a[8],iface:a[9],shutter:a[10]}));
 
-const cameras = [
-{m:"MER2-041-302GM",mp:.4,w:720,h:540,sw:4.97,sh:3.73,px:6.9,ifc:"GigE",c:"Mono"},
-{m:"MER2-041-302GC",mp:.4,w:720,h:540,sw:4.97,sh:3.73,px:6.9,ifc:"GigE",c:"Color"},
-{m:"MER2-200-6GM",mp:2,w:1600,h:1200,sw:7.78,sh:5.83,px:4.5,ifc:"GigE",c:"Mono"},
-{m:"MER2-200-6GC",mp:2,w:1600,h:1200,sw:7.78,sh:5.83,px:4.5,ifc:"GigE",c:"Color"},
-{m:"MER2-200-6GM-P",mp:2,w:1600,h:1200,sw:7.78,sh:5.83,px:4.5,ifc:"GigE PoE",c:"Mono"},
-{m:"MER2-630-60U3M",mp:6.3,w:3088,h:2064,sw:7.41,sh:4.95,px:2.4,ifc:"USB3",c:"Mono"},
-{m:"MER2-630-60U3C",mp:6.3,w:3088,h:2064,sw:7.41,sh:4.95,px:2.4,ifc:"USB3",c:"Color"},
-{m:"MER2-630-60GM",mp:6.3,w:3088,h:2064,sw:7.41,sh:4.95,px:2.4,ifc:"GigE",c:"Mono"},
-{m:"MER2-630-60GC",mp:6.3,w:3088,h:2064,sw:7.41,sh:4.95,px:2.4,ifc:"GigE",c:"Color"},
-{m:"MER2-1220-6GM",mp:12,w:4096,h:3000,sw:13.11,sh:9.6,px:3.2,ifc:"GigE",c:"Mono"},
-{m:"MER2-1220-6GC",mp:12,w:4096,h:3000,sw:13.11,sh:9.6,px:3.2,ifc:"GigE",c:"Color"},
-{m:"MER2-2000-6GM",mp:20,w:5496,h:3672,sw:13.19,sh:8.81,px:2.4,ifc:"GigE",c:"Mono"},
-{m:"MER2-2000-6GC",mp:20,w:5496,h:3672,sw:13.19,sh:8.81,px:2.4,ifc:"GigE",c:"Color"},
-{m:"MER2-2000-6GM-P",mp:20,w:5496,h:3672,sw:13.19,sh:8.81,px:2.4,ifc:"GigE PoE",c:"Mono"},
-{m:"ME2P-1230-23U3C",mp:12.3,w:4096,h:3000,sw:14.12,sh:10.35,px:3.45,ifc:"USB3",c:"Color"},
-{m:"ME2P-1230-23U3M",mp:12.3,w:4096,h:3000,sw:14.12,sh:10.35,px:3.45,ifc:"USB3",c:"Mono"},
-{m:"DH-VSDCA-S1220GM",mp:12,w:4096,h:3000,sw:13.2,sh:8.8,px:3.2,ifc:"GigE",c:"Mono"},
-{m:"DH-VSDCA-S2000GM",mp:20,w:5472,h:3648,sw:17,sh:11.3,px:3.1,ifc:"GigE",c:"Mono"}
-];
+const stockLenses=[
+["FUJINON CF12.5HA-1","富士FUJINON","fixed",12.5,null,100,"1",null,.86,1.5,.0091,"C","官方公开资料"],
+["FUJINON CF16HA-1","富士FUJINON","fixed",16,null,100,"1",null,.79,1.5,.0091,"C","官方公开资料"],
+["FUJINON CF25HA-1","富士FUJINON","fixed",25,null,100,"1",null,.36,1.5,.0091,"C","官方公开资料"],
+["FUJINON CF35HA-1","富士FUJINON","fixed",35,null,200,"1",null,.18,1.5,.0091,"C","官方公开资料"],
+["FUJINON CF50HA-1","富士FUJINON","fixed",50,null,400,"1",null,.20,1.5,.0091,"C","官方公开资料"],
+["FUJINON CF75HA-1","富士FUJINON","fixed",75,null,900,"1",null,.01,1.5,.0091,"C","官方公开资料"],
+["海康MVL-MF1618M-5MPE","海康","fixed",16,null,100,"2/3",null,null,5,.00345,"C","官方Datasheet"],
+["OPT奥普特-待核验","OPT奥普特","fixed",null,null,null,null,null,null,null,null,"C","待补Datasheet"],
+["康标达-待核验","康标达","fixed",null,null,null,null,null,null,null,null,"C","待补Datasheet"],
+["腾龙-待核验","腾龙","fixed",null,null,null,null,null,null,null,null,"C","待补Datasheet"],
+["大华-待核验","大华","fixed",null,null,null,null,null,null,null,null,"C","待补Datasheet"],
+["视清WWH/DTCM-待核验","视清WWH/DTCM","tele",null,null,null,null,null,null,null,null,"C","待补Datasheet"],
+["德鸿DH-待核验","德鸿DH","tele",null,null,null,null,null,null,null,null,"C","待补Datasheet"],
+["OPT奥普特-远心待核验","OPT奥普特","tele",null,null,null,null,null,null,null,null,"C","待补Datasheet"],
+["慕藤光-远心待核验","慕藤光","tele",null,null,null,null,null,null,null,null,"C","待补Datasheet"],
+["灿锐-远心待核验","灿锐","tele",null,null,null,null,null,null,null,null,"C","待补Datasheet"],
+["康视达-远心待核验","康视达","tele",null,null,null,null,null,null,null,null,"C","待补Datasheet"]
+].map(a=>({m:a[0],brand:a[1],type:a[2],f:a[3],mag:a[4],wd:a[5],fmt:a[6],dof:a[7],dist:a[8],res:a[9],maxPitch:a[10],mount:a[11],source:a[12]}));
 
-const lenses = [
-{m:"HN-P-1224-20M-C1.1/1",type:"fixed",f:12,fmt:"1.1\"",minwd:100},
-{m:"HN-P-1624-20M-C1.1/1",type:"fixed",f:16,fmt:"1.1\"",minwd:100},
-{m:"HN-P-2524-20M-C1.1/1",type:"fixed",f:25,fmt:"1.1\"",minwd:150},
-{m:"HN-P-3524-20M-C1.1/1",type:"fixed",f:35,fmt:"1.1\"",minwd:150},
-{m:"HN-P-5024-20M-C1.1/1",type:"fixed",f:50,fmt:"1.1\"",minwd:250},
-{m:"HN-P-1224-25M-C1.2/1",type:"fixed",f:12,fmt:"1.2\"",minwd:100},
-{m:"HN-P-1624-25M-C1.2/1",type:"fixed",f:16,fmt:"1.2\"",minwd:100},
-{m:"HN-P-2524-25M-C1.2/1",type:"fixed",f:25,fmt:"1.2\"",minwd:150},
-{m:"HN-P-3524-25M-C1.2/1",type:"fixed",f:35,fmt:"1.2\"",minwd:150},
-{m:"HN-P-5024-25M-C1.2/1",type:"fixed",f:50,fmt:"1.2\"",minwd:250},
-{m:"HN-7531-20M-C1/1X",type:"fixed",f:75,fmt:"1\"",minwd:250},
-{m:"DH-VSDLE-HS05-375A",type:"telecentric",mag:.5,fmt:"远心",minwd:375},
-{m:"DH-VSDLE-HS04-350",type:"telecentric",mag:.4,fmt:"远心",minwd:350},
-{m:"DH-VSDLE-KS30-111",type:"telecentric",mag:.3,fmt:"远心",minwd:111},
-{m:"DH-VSDLE-LS30-65D",type:"telecentric",mag:.3,fmt:"远心",minwd:65},
-{m:"DH-VSDLE-CMS0329-138-KT",type:"telecentric",mag:.32,fmt:"远心",minwd:138}
-];
+const standardF=[4,6,8,12,12.5,16,20,25,25.4,30,35,40,50,60,75,100,125,150,200];
+const $=id=>document.getElementById(id);
+const fmt=x=>Number(x).toFixed(3);
+const fmt2=x=>Number(x).toFixed(2);
+const fmt3=x=>Number(x).toFixed(4);
+const fmt0=x=>Math.round(x);
 
-const $ = id => document.getElementById(id);
-const fmt = x => Number(x).toFixed(2);
+function customLenses(){try{return JSON.parse(localStorage.getItem("vs8custom")||"[]")}catch(e){return[]}}
+function allLenses(){return stockLenses.concat(customLenses())}
+function orderFmt(x){return {"1/2":2,"1/1.8":3,"2/3":4,"1":5,"1.1":6}[x]||0}
+function sensorFits(c,l){return !l.fmt || orderFmt(c.fmt)<=orderFmt(l.fmt)}
+function validNum(x){return Number.isFinite(x)&&x>0}
 
-function requiredPixels(fw,fh,p){return {w:fw/p,h:fh/p};}
-function fovRange(fw,fh,tol){
-  return {minW:fw*(1-tol),maxW:fw*(1+tol),minH:fh*(1-tol),maxH:fh*(1+tol)};
+function inputSimple(){
+ return {w:+$("w").value,h:+$("h").value,m:+$("margin").value,t:+$("tol").value,wd:+$("wd").value,acc:+$("acc").value,sf:+$("sf").value,height:+$("height").value,speed:+$("speed").value,type:$("fixed").classList.contains("on")?"fixed":"tele",cam:$("cam").value};
 }
-function fixedFov(cam,lens,wd){
-  return {w:cam.sw*wd/lens.f,h:cam.sh*wd/lens.f};
+function inputPro(){
+ return {w:+$("pw").value,h:+$("ph").value,m:+$("pm").value,t:+$("ptol").value,wd:$("pf").classList.contains("on")?+$("pwd").value:0,acc:+$("pacc").value,sf:+$("psf").value,height:+$("phd").value,speed:+$("pspeed").value,type:$("pf").classList.contains("on")?"fixed":"tele",cam:$("pcam").value,brand:$("brandFilter").value};
 }
-function teleFov(cam,lens){
-  return {w:cam.sw/lens.mag,h:cam.sh/lens.mag};
+function validate(o){
+ const a=[o.w,o.h,o.m,o.t,o.acc,o.sf]; if(a.some(x=>!Number.isFinite(x)||x<0)||o.w<=0||o.h<=0||o.acc<=0||o.sf<1||o.sf>3)return "请检查输入：尺寸、精度必须大于0，安全系数需在1~3。";
+ if(o.type==="fixed"&&o.wd<=0)return "普通定焦通道必须输入有效WD。";
+ return "";
 }
-function withinCoverage(fov,fw,fh){return fov.w>=fw && fov.h>=fh;}
-function fovFitScore(fov,fw,fh){
-  if(!withinCoverage(fov,fw,fh)) return -999;
-  const rw=fov.w/fw, rh=fov.h/fh;
-  const over=(rw-1)+(rh-1);
-  return 100-Math.min(over*45,70);
+function requirement(o){return {w:o.w+2*o.m,h:o.h+2*o.m,pxw:Math.ceil((o.w+2*o.m)/o.acc),pxh:Math.ceil((o.h+2*o.m)/o.acc)}}
+function calcFixed(c,o,f){return {w:c.sw*(o.wd-f)/f,h:c.sh*(o.wd-f)/f}}
+function calcTele(c,o,m){return {w:c.sw/m,h:c.sh/m}}
+function lensMatch(c,o,l){
+ if(!sensorFits(c,l))return null;
+ if(o.type==="fixed"){
+  if(!validNum(l.f))return null;
+  if(l.wd && o.wd<l.wd)return null;
+  return calcFixed(c,o,l.f);
+ }else{
+  if(!validNum(l.mag))return null;
+  return calcTele(c,o,l.mag);
+ }
 }
-function cameraScore(cam,req){
-  if(cam.w<req.w || cam.h<req.h) return -999;
-  const pw=cam.w/req.w, ph=cam.h/req.h;
-  const excess=(pw-1)+(ph-1);
-  let s=100-Math.min(excess*20,45);
-  if(req.task==="measure" && cam.c==="Mono") s+=5;
-  return s;
+function scoreFov(v,r,o){
+ if(v.w<r.w||v.h<r.h)return -999;
+ const over=(v.w/r.w-1)+(v.h/r.h-1);
+ const band=v.w<=r.w*(1+o.t)&&v.h<=r.h*(1+o.t);
+ return 100-Math.min(70,over*40)+(band?20:0);
 }
-function chooseCamera(req,forced){
-  let list=forced==="all"?cameras.slice():cameras.filter(c=>c.m===forced);
-  return list.map(c=>({c,score:cameraScore(c,req)})).filter(x=>x.score>-900).sort((a,b)=>b.score-a.score);
+function cameraCandidates(o,r){
+ let cs=cameras.filter(c=>o.cam==="auto"||c.m===o.cam);
+ cs=cs.filter(c=>c.px>=r.pxw&&c.py>=r.pxh);
+ if(!cs.length)cs=cameras.filter(c=>o.cam==="auto"||c.m===o.cam);
+ return cs;
 }
-function chooseLenses(cam,req){
-  return lenses.map(l=>{
-    if(req.type!=="all" && l.type!==req.type)return null;
-    if(req.wd<l.minwd)return null;
-    const fov=l.type==="fixed"?fixedFov(cam,l,req.wd):teleFov(cam,l);
-    const base=fovFitScore(fov,req.fw,req.fh);
-    if(base<0)return null;
-    const tol=fovRange(req.fw,req.fh,req.tol);
-    const inBand=fov.w>=tol.minW && fov.w<=tol.maxW && fov.h>=tol.minH && fov.h<=tol.maxH;
-    const extra=inBand?18:0;
-    const sensorUse=Math.min(req.fw/fov.w,req.fh/fov.h);
-    const score=Math.max(0,base+extra+sensorUse*12);
-    return {l,fov,score,inBand};
-  }).filter(Boolean).sort((a,b)=>b.score-a.score);
+function theoretical(o,c){
+ if(o.type==="fixed"){
+  const fh=c.sw*o.wd/o.w, fv=c.sh*o.wd/o.h;
+  return {fH:fh,fV:fv,fLow:Math.min(fh,fv),fHigh:Math.max(fh,fv)};
+ }else{
+  const mh=c.sw/o.w,mv=c.sh/o.h;
+  return {mH:mh,mV:mv,mLow:Math.min(mh,mv),mHigh:Math.max(mh,mv)};
+ }
 }
-function calculate(req,forced){
-  const reqpx=requiredPixels(req.fw,req.fh,req.prec);
-  const cams=chooseCamera({...req, w:reqpx.w,h:reqpx.h},forced);
-  const combinations=[];
-  cams.slice(0,8).forEach(c=>{
-    chooseLenses(c.c,req).slice(0,5).forEach(x=>{
-      combinations.push({cam:c.c,lens:x.l,fov:x.fov,score:(c.score+x.score)/2,inBand:x.inBand});
-    });
-  });
-  combinations.sort((a,b)=>b.score-a.score);
-  return {reqpx,range:fovRange(req.fw,req.fh,req.tol),combos:combinations.slice(0,8)};
+function chooseStandardF(c,o,r){
+ const idealH=c.sw*o.wd/r.w,idealV=c.sh*o.wd/r.h;
+ const candidates=standardF.filter(f=>f<o.wd*.95);
+ let viable=candidates.filter(f=>{const v=calcFixed(c,o,f);return v.w>=r.w&&v.h>=r.h&&v.w<=r.w*(1+o.t)&&v.h<=r.h*(1+o.t)});
+ if(!viable.length)viable=candidates.filter(f=>{const v=calcFixed(c,o,f);return v.w>=r.w&&v.h>=r.h});
+ if(!viable.length)viable=candidates.filter(f=>{const v=calcFixed(c,o,f);return v.w>=r.w});
+ viable.sort((a,b)=>Math.abs(a-idealH)-Math.abs(b-idealH));
+ return viable[0]||null;
 }
-function render(data,req){
-  $("needW").textContent=Math.ceil(data.reqpx.w).toLocaleString()+" px";
-  $("needH").textContent=Math.ceil(data.reqpx.h).toLocaleString()+" px";
-  $("range").textContent=fmt(data.range.minW)+"~"+fmt(data.range.maxW)+" × "+fmt(data.range.minH)+"~"+fmt(data.range.maxH);
-  $("status").textContent=data.combos.length?"已找到":"无完全匹配";
-  $("status").style.color=data.combos.length?"#16a34a":"#dc2626";
-  if(!data.combos.length){
-    $("results").innerHTML='<div class="notice">当前数据库没有满足全部条件的组合。可以增大视野公差、降低目标精度要求，或补充更多相机/镜头型号。</div>';
-    return;
+function chooseStandardM(c,o,r){
+ const idealH=c.sw/r.w,idealV=c.sh/r.h;
+ const common=[0.05,.067,.08,.1,.125,.15,.2,.25,.3,.33,.4,.5,.6,.67,.75,.8,1,1.25,1.5,2,3,4,5];
+ let viable=common.filter(m=>{const v=calcTele(c,o,m);return v.w>=r.w&&v.h>=r.h&&v.w<=r.w*(1+o.t)&&v.h<=r.h*(1+o.t)});
+ if(!viable.length)viable=common.filter(m=>{const v=calcTele(c,o,m);return v.w>=r.w&&v.h>=r.h});
+ viable.sort((a,b)=>Math.abs(a-idealH)-Math.abs(b-idealH));
+ return viable[0]||null;
+}
+function databaseMatches(o,r,c){
+ let arr=allLenses().filter(l=>l.type===o.type);
+ if(o.brand&&o.brand!=="all")arr=arr.filter(l=>l.brand===o.brand);
+ return arr.map(l=>{const v=lensMatch(c,o,l);if(!v)return null;const score=scoreFov(v,r,o);if(score<0)return null;return {l,v,score}}).filter(Boolean).sort((a,b)=>b.score-a.score).slice(0,5);
+}
+function run(o){
+ const err=validate(o);if(err){$("results").innerHTML='<div class="notice danger">'+err+"</div>";return}
+ const r=requirement(o),cs=cameraCandidates(o,r);
+ let out=[];
+ cs.forEach(c=>{
+  const th=theoretical(o,c);
+  if(o.type==="fixed"){
+   const f=chooseStandardF(c,o,r),v=f?calcFixed(c,o,f):null;
+   if(f&&v)out.push({c,th,f,v,db:databaseMatches(o,r,c)});
+  }else{
+   const m=chooseStandardM(c,o,r),v=m?calcTele(c,o,m):null;
+   if(m&&v)out.push({c,th,m,v,db:databaseMatches(o,r,c)});
   }
-  $("results").innerHTML=data.combos.map((x,i)=>{
-    const cam=x.cam,l=x.lens;
-    const fov=x.fov;
-    const exact=fov.w>=req.fw&&fov.h>=req.fh;
-    return `<div class="rec ${i===0?"best":""}">
-      <div class="rec-head">
-        <div>
-          <span class="tag ${i===0?"ok":""}">${i===0?"优先推荐":"候选 "+(i+1)}</span>
-          <span class="tag">${l.type==="fixed"?"普通定焦":"远心/倍率"}</span>
-          <h3>${cam.m} + ${l.m}</h3>
-          <div class="small">${cam.mp}MP · ${cam.w}×${cam.h} · ${cam.sw}×${cam.sh} mm · ${cam.ifc} · ${cam.c}</div>
-        </div>
-        <div class="score">${Math.round(x.score)}</div>
-      </div>
-      <div class="kv">
-        <div><small>镜头</small><b>${l.f?l.f+" mm":"倍率 "+l.mag+"×"}</b></div>
-        <div><small>理论FOV</small><b>${fmt(fov.w)} × ${fmt(fov.h)} mm</b></div>
-        <div><small>WD</small><b>${req.wd} mm</b></div>
-        <div><small>FOV状态</small><b>${exact?"覆盖":"不覆盖"}</b></div>
-      </div>
-      <div class="small" style="margin-top:9px">
-      ${x.inBand?"✓ 理论FOV落在你设置的公差范围内。":"✓ 能覆盖目标，但理论FOV超出允许公差，按候选方案处理。"}
-      ${l.type==="fixed"?" 普通定焦采用 Sensor×WD÷焦距 的初步估算。":" 远心镜头按 Sensor÷倍率 估算物方视野。"}
-      </div>
-    </div>`;
-  }).join("");
+ });
+ out.sort((a,b)=>{
+  const ca=(a.c.px>=r.pxw&&a.c.py>=r.pxh)?0:1, cb=(b.c.px>=r.pxw&&b.c.py>=r.pxh)?0:1;
+  if(ca!==cb)return ca-cb;
+  return (a.c.mp-b.c.mp);
+ });
+ render(o,r,out);
 }
-function getSimpleReq(){
-  return {fw:+$("fovW").value,fh:+$("fovH").value,tol:+$("tolerance").value,wd:+$("wd").value,prec:+$("precision").value,task:$("task").value,type:$("lensType").value};
+function render(o,r,out){
+ $("fov").textContent=fmt(r.w)+" × "+fmt(r.h)+" mm";
+ $("needpx").textContent=r.pxw+" × "+r.pxh+" px";
+ if(!out.length){$("pix").textContent="—";$("eng").textContent="—";$("status").textContent="无标准候选";$("results").innerHTML='<div class="notice danger">没有找到数据库相机对应的标准焦距/倍率组合。理论值仍可按指定相机计算；你可以换相机、放宽精度或视野公差。</div>';return}
+ const best=out[0],bestPix=Math.max(best.v.w/best.c.px,best.v.h/best.c.py);
+ $("pix").textContent=fmt3(bestPix)+" mm/pixel";$("eng").textContent=fmt3(bestPix*o.sf)+" mm/pixel";$("status").textContent="已计算";
+ const th=best.th;
+ const theoreticalText=o.type==="fixed"?`理论焦距范围：${fmt(th.fLow)}～${fmt(th.fHigh)} mm（横/纵分别计算）`:`理论倍率范围：${fmt(th.mLow)}～${fmt(th.mHigh)}×（横/纵分别计算）`;
+ let html=`<div class="rec best"><span class="tag ok">方案① ${o.type==="fixed"?"普通定焦 · 优先":"远心"}</span><h3>${best.c.m}</h3><div class="small">${best.c.mp}MP · ${best.c.px}×${best.c.py} · Sensor ${best.c.sw}×${best.c.sh} mm · ${best.c.fmt} · ${best.c.iface}</div><div class="notice" style="margin-top:8px">${theoreticalText}</div><div class="kv"><div><small>推荐${o.type==="fixed"?"焦距":"倍率"}</small><b>${o.type==="fixed"?fmt(best.f)+" mm":fmt(best.m)+"×"}</b></div><div><small>预计FOV</small><b>${fmt(best.v.w)}×${fmt(best.v.h)}</b></div><div><small>水平像素利用</small><b>${fmt2(r.w/best.v.w*100)}%</b></div><div><small>垂直像素利用</small><b>${fmt2(r.h/best.v.h*100)}%</b></div></div>`;
+ if(o.type==="fixed"&&best.f)html+=`<p class="small">理论计算值不是采购限制；推荐采用标准焦距 ${best.f}mm。实际镜头仍需核对WD范围、靶面、畸变、解析力和DOF。</p>`;
+ if(best.db.length)html+=`<b>数据库匹配（可选）</b>`+best.db.map((x,i)=>`<div class="rec"><span class="tag">${i===0?"最接近":"候选"}</span><b>${x.l.m}</b><div class="small">${x.l.brand} · ${x.l.type==="fixed"?x.l.f+"mm":x.l.mag+"×"} · 最大靶面 ${x.l.fmt||"待核验"} · 来源：${x.l.source}</div></div>`).join("");
+ else html+=`<div class="notice">数据库暂无完全匹配型号。<b>仍建议按计算结果寻找 ${o.type==="fixed"?fmt(best.f)+"mm定焦镜头":fmt(best.m)+"×远心镜头"}。</b></div>`;
+ html+="</div>";
+ if(o.type==="fixed"){
+  const c=best.c,m=chooseStandardM(c,o,r),mv=m?calcTele(c,o,m):null,tm=th;
+  html+=`<div class="rec"><span class="tag">方案② 远心参考</span><h3>理论需要约 ${fmt(tm.mLow)}～${fmt(tm.mHigh)}×</h3><div class="small">按当前相机Sensor与目标FOV计算。远心通道不使用WD来计算倍率。</div>${m?`<div class="kv"><div><small>建议标准倍率</small><b>${m}×</b></div><div><small>预计FOV</small><b>${fmt(mv.w)}×${fmt(mv.h)}</b></div><div><small>适合</small><b>尺寸测量/低畸变</b></div><div><small>数据库</small><b>${best.db.filter(x=>x.l.type==="tele").length?"有候选":"待补型号"}</b></div></div>`:""}</div>`;
+ }else{
+  const c=best.c,f=chooseStandardF(c,o,r),fv=f?calcFixed(c,o,f):null;
+  html+=`<div class="rec"><span class="tag">方案② 普通定焦参考</span><h3>理论需要约 ${fmt(th.fLow)}～${fmt(th.fHigh)} mm</h3>${f?`<div class="kv"><div><small>建议标准焦距</small><b>${f} mm</b></div><div><small>预计FOV</small><b>${fmt(fv.w)}×${fmt(fv.h)}</b></div><div><small>WD</small><b>${o.wd} mm</b></div><div><small>优先级</small><b>次选</b></div></div>`:""}</div>`;
+ }
+ $("results").innerHTML=html;
 }
-function getProReq(){
-  return {fw:+$("pFovW").value,fh:+$("pFovH").value,tol:+$("pTol").value,wd:+$("pWd").value,prec:+$("pPrec").value,task:"measure",type:$("pLensType").value};
+function setChannel(tele,pro){
+ if(pro){$("pf").classList.toggle("on",!tele);$("pt").classList.toggle("on",tele);$("pwdField").classList.toggle("hidden",tele)}
+ else{$("fixed").classList.toggle("on",!tele);$("tele").classList.toggle("on",tele)}
 }
-function runSimple(){
-  try{const req=getSimpleReq();if(!(req.fw>0&&req.fh>0&&req.wd>0&&req.prec>0))throw new Error("请检查输入参数");render(calculate(req,"all"),req);}
-  catch(e){$("status").textContent="输入有误";$("results").innerHTML='<div class="notice">'+e.message+'</div>';}
+function populate(){
+ $("cam").innerHTML='<option value="auto">自动选相机</option>'+cameras.map(c=>`<option value="${c.m}">${c.m} · ${c.mp}MP · ${c.px}×${c.py}</option>`).join("");
+ $("pcam").innerHTML='<option value="auto">自动</option>'+cameras.map(c=>`<option value="${c.m}">${c.m} · ${c.mp}MP</option>`).join("");
+ $("brandFilter").innerHTML='<option value="all">全部</option>'+[...new Set(stockLenses.map(l=>l.brand))].map(b=>`<option>${b}</option>`).join("");
 }
-function runPro(){
-  try{const req=getProReq();if(!(req.fw>0&&req.fh>0&&req.wd>0&&req.prec>0))throw new Error("请检查输入参数");render(calculate(req,$("cameraSelect").value),req);}
-  catch(e){$("status").textContent="输入有误";$("results").innerHTML='<div class="notice">'+e.message+'</div>';}
+function tab(t){
+ const e=$("tab");
+ if(t==="camera")e.innerHTML='<div class="small">像素用于判断“相机是否够用”，Sensor物理尺寸用于计算焦距/倍率。不要用“1/1.8英寸”名义尺寸代替实际Sensor尺寸。</div><div class="tablewrap"><table class="table"><tr><th>型号</th><th>MP</th><th>分辨率</th><th>Sensor mm</th><th>像元 μm</th><th>靶面</th><th>接口</th><th>快门</th></tr>'+cameras.map(c=>`<tr><td>${c.m}</td><td>${c.mp}</td><td>${c.px}×${c.py}</td><td>${c.sw}×${c.sh}</td><td>${c.pitch}</td><td>${c.fmt}</td><td>${c.iface}</td><td>${c.shutter}</td></tr>`).join("")+'</table></div>';
+ if(t==="lens")e.innerHTML='<div class="small">镜头数据库仅用于“具体型号匹配”，不会限制理论焦距/倍率计算。未知参数标为待补，不参与算法。</div><div class="tablewrap"><table class="table"><tr><th>品牌</th><th>型号</th><th>类型</th><th>焦距/倍率</th><th>WD</th><th>最大靶面</th><th>DOF</th><th>畸变%</th><th>解析MP</th><th>接口</th></tr>'+allLenses().map(l=>`<tr><td>${l.brand}</td><td>${l.m}</td><td>${l.type==="fixed"?"定焦":"远心"}</td><td>${l.type==="fixed"?(l.f?l.f+"mm":"待核验"):(l.mag?l.mag+"×":"待核验")}</td><td>${l.wd||"待核验"}</td><td>${l.fmt||"待核验"}</td><td>${l.dof||"待核验"}</td><td>${l.dist||"待核验"}</td><td>${l.res||"待核验"}</td><td>${l.mount||"—"}</td></tr>`).join("")+'</table></div>';
+ if(t==="formula")e.innerHTML='<div class="notice"><b>普通定焦初选：</b>f ≈ Sensor × WD ÷ FOV。更精确的薄透镜关系可写成 FOV = Sensor × (WD−f)/f；本软件把标准机器视觉初选公式作为快速估算，最终以实际镜头Datasheet为准。</div><div class="notice" style="margin-top:8px"><b>远心：</b>FOV = Sensor ÷ Magnification；因此 Magnification = Sensor ÷ FOV。远心通道不拿WD干扰倍率计算。</div><div class="notice" style="margin-top:8px"><b>像素：</b>mm/pixel = 实际FOV ÷ 图像像素数。最低像素需求 = 目标FOV ÷ 目标mm/pixel。</div>';
+ if(t==="check")e.innerHTML='<div class="notice">① 相机像素：目标FOV对应的最低像素数是否满足。② 靶面：相机Sensor不能超过镜头支持的最大靶面。③ 视野：实际FOV必须覆盖目标+余量。④ 解析力：镜头解析力MP低于相机MP时提示。⑤ DOF：高度差超过镜头DOF时提示。⑥ 飞拍：输入速度后可进一步做运动模糊预算。</div><div class="small" style="margin-top:8px">注意：像素满足≠测量精度一定满足。实际精度还受镜头MTF、畸变、标定、照明、机械稳定性、振动、温漂和算法影响。</div>';
+ if(t==="custom")e.innerHTML=`<div class="row"><div class="field"><label>型号</label><input id="cm" class="input"></div><div class="field"><label>品牌</label><input id="cb" class="input" value="自定义"></div></div><div class="field"><label>类型</label><select id="ct" class="select"><option value="fixed">定焦</option><option value="tele">远心</option></select></div><div class="row"><div class="field"><label>焦距mm / 倍率</label><input id="cx" class="input" type="number" step=".001"></div><div class="field"><label>最小WD mm</label><input id="cwd" class="input" type="number"></div></div><div class="row"><div class="field"><label>最大靶面</label><select id="cfmt" class="select"><option>1/2</option><option>1/1.8</option><option>2/3</option><option>1</option><option>1.1</option></select></div><div class="field"><label>DOF mm</label><input id="cdof" class="input" type="number"></div></div><div class="field"><label>解析力MP</label><input id="cres" class="input" type="number"></div><button class="btn primary" id="saveCustom">保存到本机</button><div class="small">只保存到本浏览器localStorage，不上传服务器。</div>`;
+ if(t==="about")e.innerHTML='<div class="notice"><b>非官方工具 / 仅供工程初选。</b>本页面不是大恒图像或任何镜头品牌的官方、授权、报价、销售平台。商标和型号归各自权利人。数据可能因产品版本、Datasheet更新而变化。</div><div class="small" style="margin-top:8px">公式参考：Edmund Optics、NI等公开机器视觉资料。普通定焦使用Sensor、WD、FOV的一阶关系；固定倍率/远心使用FOV=Sensor/Magnification。最终下单前必须核对厂家最新Datasheet并进行实机验证。</div>';
+ if(t==="custom")$("saveCustom").onclick=saveCustom;
 }
-function renderTab(tab){
-  const el=$("tabContent");
-  if(tab==="cameras"){
-    el.innerHTML='<div class="tablewrap"><table class="table"><tr><th>型号</th><th>MP</th><th>分辨率</th><th>Sensor</th><th>像元</th><th>接口</th><th>颜色</th></tr>'+
-    cameras.map(c=>`<tr><td>${c.m}</td><td>${c.mp}</td><td>${c.w}×${c.h}</td><td>${c.sw}×${c.sh}</td><td>${c.px} μm</td><td>${c.ifc}</td><td>${c.c}</td></tr>`).join("")+'</table></div>';
-  }
-  if(tab==="lenses"){
-    el.innerHTML='<div class="tablewrap"><table class="table"><tr><th>型号</th><th>类型</th><th>焦距/倍率</th><th>靶面</th><th>最小WD</th></tr>'+
-    lenses.map(l=>`<tr><td>${l.m}</td><td>${l.type==="fixed"?"普通定焦":"远心/倍率"}</td><td>${l.f?l.f+" mm":l.mag+"×"}</td><td>${l.fmt}</td><td>${l.minwd} mm</td></tr>`).join("")+'</table></div>';
-  }
-  if(tab==="formulas"){
-    el.innerHTML=`
-    <div class="case"><b>视野公差</b><div class="small">允许范围 = 目标FOV × (1 ± 公差)。程序要求实际FOV首先覆盖产品，再按接近程度排序。</div></div>
-    <div class="case"><b>像素当量</b><div class="small">mm/pixel = FOV ÷ 有效像素数。</div></div>
-    <div class="case"><b>最低相机分辨率</b><div class="small">水平像素 ≥ FOV宽 ÷ 目标精度；垂直像素 ≥ FOV高 ÷ 目标精度。</div></div>
-    <div class="case"><b>普通定焦初步焦距</b><div class="small">f ≈ Sensor尺寸 × WD ÷ FOV。实际以镜头Datasheet和现场验证为准。</div></div>
-    <div class="case"><b>远心/倍率镜头</b><div class="small">FOV ≈ Sensor尺寸 ÷ 镜头倍率。不同系列的型号含义不能统一套用。</div></div>
-    <div class="case"><b>3像素经验原则</b><div class="small">检测精度常用像素当量×若干像素作为工程参考，但不是厂家保证精度。</div></div>`;
-  }
-  if(tab==="rules"){
-    el.innerHTML='<div class="notice">不同镜头系列采用独立规则。未知型号不强行把型号中的数字解释成焦距或倍率。</div>'+
-    '<div class="case"><b>HN / HN-P</b><div class="small">普通定焦族，按焦距、靶面、WD及实际规格校核。</div></div>'+
-    '<div class="case"><b>HS / WH / WWH / WWK / KS / LS / CMS / DTCM</b><div class="small">倍率/远心族，需按具体系列Datasheet解析倍率、WD、靶面及后缀。</div></div>';
-  }
-  if(tab==="statement"){
-    el.innerHTML='<div class="notice"><b>声明：</b>本工具为个人/工程辅助工具，不是大恒图像官方软件、授权软件、报价系统或销售平台，与相关厂商无隶属、授权或合作关系。产品名称、型号、商标及知识产权归相应权利人所有。</div>'+
-    '<div class="case"><b>数据来源</b><div class="small">公开厂商产品页面、官方Datasheet及用户提供的项目案例。参数可能随产品更新、停产或替代而变化。</div></div>'+
-    '<div class="case"><b>仅供参考</b><div class="small">计算结果用于工程初选，不构成最终选型、性能保证或采购依据。最终应以最新官方Datasheet、机械结构、实际WD、标定、光学验证和现场测试为准。</div></div>';
-  }
+function saveCustom(){
+ const type=$("ct").value,v=+$("cx").value;
+ if(!$("cm").value||!validNum(v)){alert("请填写型号和有效焦距/倍率");return}
+ let a=customLenses();a.push({m:$("cm").value,brand:$("cb").value||"自定义",type,f:type==="fixed"?v:null,mag:type==="tele"?v:null,wd:+$("cwd").value||null,fmt:$("cfmt").value,dof:+$("cdof").value||null,res:+$("cres").value||null,mount:"C",source:"用户自定义"});localStorage.setItem("vs8custom",JSON.stringify(a));tab("lens");
 }
 function init(){
-  $("cameraSelect").innerHTML='<option value="all">自动选择</option>'+cameras.map(c=>`<option value="${c.m}">${c.m} · ${c.mp}MP · ${c.w}×${c.h}</option>`).join("");
-  document.querySelectorAll(".tabs button").forEach(btn=>btn.addEventListener("click",()=>{
-    document.querySelectorAll(".tabs button").forEach(x=>x.classList.remove("active"));
-    btn.classList.add("active");renderTab(btn.dataset.tab);
-  }));
-  $("quickCalc").addEventListener("click",runSimple);
-  $("proCalc").addEventListener("click",runPro);
-  $("caseBtn").addEventListener("click",()=>{
-    $("fovW").value=20;$("fovH").value=10;$("tolerance").value=".10";$("wd").value=250;$("precision").value=".005";runSimple();
-  });
-  $("simpleMode").addEventListener("click",()=>{
-    $("simpleMode").classList.add("active");$("proMode").classList.remove("active");
-    $("simplePanel").classList.remove("hidden");$("proPanel").classList.add("hidden");
-    $("title").textContent="简约快速选型";$("subtitle").textContent="支持视野公差。优先寻找能够覆盖目标且最接近目标视野的组合。";
-  });
-  $("proMode").addEventListener("click",()=>{
-    $("proMode").classList.add("active");$("simpleMode").classList.remove("active");
-    $("simplePanel").classList.add("hidden");$("proPanel").classList.remove("hidden");
-    $("title").textContent="专业选型";$("subtitle").textContent="可指定相机、镜头类型和视野公差，并查看计算依据。";
-  });
-  renderTab("cameras");runSimple();
+ populate();tab("camera");
+ $("fixed").onclick=()=>setChannel(false);$("tele").onclick=()=>setChannel(true);
+ $("pf").onclick=()=>setChannel(false,true);$("pt").onclick=()=>setChannel(true,true);
+ $("calc").onclick=()=>run(inputSimple());$("pcalc").onclick=()=>run(inputPro());
+ $("example").onclick=()=>{$("w").value=20;$("h").value=10;$("margin").value=0;$("wd").value=250;$("acc").value=.005;$("sf").value=1.5;$("cam").value="auto";setChannel(false);run(inputSimple())};
+ $("simple").onclick=()=>{$("simple").classList.add("on");$("pro").classList.remove("on");$("simplePanel").classList.remove("hidden");$("proPanel").classList.add("hidden");$("modeTitle").textContent="简约快速选型"};
+ $("pro").onclick=()=>{$("pro").classList.add("on");$("simple").classList.remove("on");$("simplePanel").classList.add("hidden");$("proPanel").classList.remove("hidden");$("modeTitle").textContent="专业版"};
+ document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tabs button").forEach(x=>x.classList.remove("on"));b.classList.add("on");tab(b.dataset.t)});
+ run(inputSimple());
 }
 init();
 </script>
-</body>
-</html>
+</body></html>
