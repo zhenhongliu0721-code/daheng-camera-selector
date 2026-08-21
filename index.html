@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>大恒图像｜机器视觉相机选型助手</title>
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--text:#182230;--muted:#667085;--blue:#1769e0;--line:#e5eaf1;--green:#087443;--orange:#b54708}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,"Microsoft YaHei",sans-serif;color:var(--text)}
+header{background:#0b1f3a;color:white;padding:28px 20px}header .wrap,main{max-width:1180px;margin:auto}
+h1{margin:0 0 8px;font-size:28px}header p{margin:0;color:#c8d5e8}
+main{padding:22px 16px 50px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 5px 18px #14213d0a}
+h2{font-size:18px;margin:0 0 16px}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{display:block;font-size:13px;font-weight:700;margin:10px 0 6px}input,select{width:100%;padding:11px;border:1px solid #cfd7e3;border-radius:8px;font-size:15px;background:#fff}
+.unit{color:var(--muted);font-size:12px;margin-left:5px;font-weight:400}
+button{border:0;border-radius:9px;padding:12px 18px;font-size:15px;font-weight:700;cursor:pointer;background:var(--blue);color:#fff;margin-top:14px}
+button.secondary{background:#eef4ff;color:#1555ad;margin-left:8px}
+.result{margin-top:18px}.big{font-size:26px;font-weight:800;color:var(--blue)}.metric{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:11px 0}.metric:last-child{border:0}
+.badge{display:inline-block;padding:5px 9px;border-radius:999px;background:#ecfdf3;color:var(--green);font-size:12px;font-weight:700}.warn{background:#fff7ed;color:var(--orange)}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line)}th{background:#f8fafc}
+.note{font-size:12px;line-height:1.65;color:var(--muted)}.formula{background:#f8fafc;border-radius:10px;padding:12px;margin-top:12px;font-family:monospace}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.row{grid-template-columns:1fr}h1{font-size:23px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<h1>大恒图像｜机器视觉相机选型助手</h1>
+<p>输入视野、物距、像素精度，自动估算相机分辨率与镜头焦距，并给出选型建议。</p>
+</div></header>
+
+<main>
+<div class="grid">
+<section class="card">
+<h2>① 检测需求</h2>
+<div class="row">
+<div><label>水平视野 FOV <span class="unit">mm</span></label><input id="fovW" type="number" value="200" step="0.1"></div>
+<div><label>垂直视野 FOV <span class="unit">mm</span></label><input id="fovH" type="number" value="150" step="0.1"></div>
+</div>
+<div class="row">
+<div><label>物距 WD <span class="unit">mm</span></label><input id="wd" type="number" value="300" step="0.1"></div>
+<div><label>要求像素精度 <span class="unit">mm/px</span></label><input id="acc" type="number" value="0.05" step="0.001"></div>
+</div>
+<label>精度余量</label>
+<select id="margin">
+<option value="1">1 倍（理论最低）</option>
+<option value="1.5" selected>1.5 倍（常用）</option>
+<option value="2">2 倍（保守）</option>
+</select>
+<button onclick="calc()">开始选型</button>
+<button class="secondary" onclick="demo()">示例参数</button>
+</section>
+
+<section class="card result">
+<h2>② 自动计算结果</h2>
+<div class="metric"><span>理论最低水平像素</span><b id="pxW">—</b></div>
+<div class="metric"><span>理论最低垂直像素</span><b id="pxH">—</b></div>
+<div class="metric"><span>建议相机分辨率</span><b class="big" id="cam">—</b></div>
+<div class="metric"><span>所需水平像元分辨率</span><b id="resW">—</b></div>
+<div class="metric"><span>估算镜头焦距</span><b class="big" id="focal">—</b></div>
+<div class="metric"><span>建议标准焦距</span><b id="stdFocal">—</b></div>
+<div id="status" style="margin-top:12px"></div>
+</section>
+</div>
+
+<section class="card" style="margin-top:18px">
+<h2>③ 推荐相机档位</h2>
+<table>
+<thead><tr><th>相机档位</th><th>典型分辨率</th><th>适合情况</th><th>本需求判断</th></tr></thead>
+<tbody id="cameraTable"></tbody>
+</table>
+<p class="note">这里的“档位”用于选型计算，不绑定某一具体型号。实际采购时还要根据接口（USB3/GigE/CoaXPress）、帧率、靶面、像元尺寸、曝光、彩色/黑白等参数核对大恒具体型号。</p>
+</section>
+
+<section class="card" style="margin-top:18px">
+<h2>④ 镜头焦距计算</h2>
+<div class="formula">f ≈ 传感器水平尺寸 × 物距 ÷ 水平视野</div>
+<p class="note">大恒资料也采用“传感器尺寸 × 工作距离 ÷ 画面视野”计算焦距。镜头靶面应覆盖相机传感器靶面，实际工作距离还应满足镜头最小物距要求。</p>
+<table>
+<thead><tr><th>假设相机</th><th>水平传感器尺寸</th><th>估算焦距</th><th>建议焦距</th></tr></thead>
+<tbody id="lensTable"></tbody>
+</table>
+</section>
+
+<section class="card" style="margin-top:18px">
+<h2>⑤ 使用逻辑</h2>
+<p class="note">
+1. 先填“水平/垂直视野”；2. 填镜头到产品的实际物距；3. 填要求的像素精度，例如 0.05 mm/px；
+4. 网站先计算最低像素数量，再留出余量推荐相机档位；5. 根据相机靶面和物距计算焦距；6. 最后用大恒具体镜头数据表核对靶面、最小物距、畸变、分辨率和接口。
+</p>
+</section>
+</main>
+
+<script>
+const cameras=[
+{name:"200万级",w:1920,h:1080,sensor:7.68},
+{name:"500万级",w:2448,h:2048,sensor:12.29},
+{name:"1200万级",w:4096,h:3000,sensor:16.38},
+{name:"1600万级",w:5440,h:3072,sensor:21.76},
+{name:"2000万级",w:5472,h:3648,sensor:21.89}
+];
+const focals=[8,12,16,25,35,50,75];
+function fmt(x,n=2){return Number(x).toFixed(n).replace(/\.00$/,"")}
+function nearestFocal(x){return focals.reduce((a,b)=>Math.abs(b-x)<Math.abs(a-x)?b:a)}
+function calc(){
+ const fw=+document.getElementById('fovW').value, fh=+document.getElementById('fovH').value;
+ const wd=+document.getElementById('wd').value, acc=+document.getElementById('acc').value;
+ const margin=+document.getElementById('margin').value;
+ if(!(fw>0&&fh>0&&wd>0&&acc>0)){alert("请把四个参数填写完整");return}
+ const minW=fw/acc, minH=fh/acc;
+ const needW=Math.ceil(minW*margin), needH=Math.ceil(minH*margin);
+ let selected=cameras.find(c=>c.w>=needW&&c.h>=needH)||cameras[cameras.length-1];
+ document.getElementById('pxW').textContent=Math.ceil(minW)+" px";
+ document.getElementById('pxH').textContent=Math.ceil(minH)+" px";
+ document.getElementById('cam').textContent=selected.name+"（"+selected.w+"×"+selected.h+"）";
+ document.getElementById('resW').textContent=fmt(fw/selected.w,4)+" mm/px";
+ const f=selected.sensor*wd/fw;
+ document.getElementById('focal').textContent=fmt(f,1)+" mm";
+ document.getElementById('stdFocal').textContent=nearestFocal(f)+" mm";
+ const ok=selected.w>=needW&&selected.h>=needH;
+ document.getElementById('status').innerHTML=ok
+ ? '<span class="badge">✓ 当前档位满足像素数量要求</span>'
+ : '<span class="badge warn">⚠ 已达到示例数据库最高档位，建议增加分辨率或重新评估精度/视野</span>';
+ document.getElementById('cameraTable').innerHTML=cameras.map(c=>{
+   const yes=c.w>=needW&&c.h>=needH;
+   return `<tr><td>${c.name}</td><td>${c.w}×${c.h}</td><td>${c.w*acc>=fw&&c.h*acc>=fh?"可覆盖需求":"像素不足"}</td><td>${yes?'<span class="badge">推荐</span>':'—'}</td></tr>`
+ }).join("");
+ document.getElementById('lensTable').innerHTML=cameras.map(c=>{
+   const f2=c.sensor*wd/fw;
+   return `<tr><td>${c.name}（${c.w}×${c.h}）</td><td>${c.sensor} mm</td><td>${fmt(f2,1)} mm</td><td>${nearestFocal(f2)} mm</td></tr>`
+ }).join("");
+}
+function demo(){
+ document.getElementById('fovW').value=200;document.getElementById('fovH').value=150;
+ document.getElementById('wd').value=300;document.getElementById('acc').value=0.05;
+ calc();
+}
+calc();
+</script>
+</body>
+</html>
