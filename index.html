@@ -3,16 +3,345 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Vision Select｜机器视觉工程选型助手</title>
+<title>Vision Select V5.1｜机器视觉工程选型助手</title>
 <style>
-:root{--bg:#f5f7fa;--card:#fff;--text:#172033;--muted:#667085;--line:#e6eaf0;--blue:#1677ff;--blue2:#0b5cff;--green:#16a34a;--orange:#f59e0b;--red:#dc2626;--shadow:0 10px 30px rgba(15,23,42,.07)}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",Arial,sans-serif}
-button,input,select{font:inherit}button{cursor:pointer}.top{background:#101828;color:#fff;padding:18px 20px;position:sticky;top:0;z-index:10}.topin{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand b{font-size:19px}.brand span{display:block;color:#aab4c3;font-size:12px;margin-top:3px}.modes{display:flex;background:#1d2939;border:1px solid #344054;border-radius:12px;padding:4px}.modes button{border:0;background:transparent;color:#cbd5e1;padding:9px 16px;border-radius:9px}.modes button.active{background:#fff;color:#101828;font-weight:700}.wrap{max-width:1180px;margin:22px auto;padding:0 16px}.hero{background:linear-gradient(135deg,#0f172a,#183b73);color:#fff;border-radius:20px;padding:26px 28px;box-shadow:var(--shadow);margin-bottom:18px}.hero h1{margin:0 0 8px;font-size:28px}.hero p{margin:0;color:#cbd5e1}.grid{display:grid;grid-template-columns:360px 1fr;gap:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow)}.card h2,.card h3{margin:0 0 14px}.field{margin:12px 0}.field label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}.input,.select{width:100%;border:1px solid #d0d5dd;border-radius:9px;padding:10px 11px;background:#fff;outline:none}.input:focus,.select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(22,119,255,.12)}.primary{width:100%;border:0;border-radius:10px;background:var(--blue);color:#fff;font-weight:700;padding:12px;margin-top:8px}.primary:hover{background:var(--blue2)}.ghost{border:1px solid #d0d5dd;background:#fff;border-radius:9px;padding:9px 12px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.stat{border:1px solid var(--line);border-radius:12px;padding:13px;background:#fafbfc}.stat small{color:var(--muted)}.stat b{display:block;font-size:20px;margin-top:5px}.result{margin-top:14px}.rec{border:1px solid var(--line);border-radius:14px;padding:15px;margin-top:11px;background:#fff}.rec.best{border:2px solid #7aaeff;background:#f7fbff}.tag{display:inline-block;border-radius:999px;padding:4px 8px;font-size:11px;background:#eef4ff;color:#175cd3;margin-right:5px}.tag.ok{background:#ecfdf3;color:#067647}.tag.warn{background:#fffaeb;color:#b54708}.tag.bad{background:#fef3f2;color:#b42318}.recHead{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.rec h3{margin:0 0 6px;font-size:16px}.score{font-size:22px;font-weight:800;color:var(--blue)}.muted{color:var(--muted);font-size:13px}.kv{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.kv div{background:#f8fafc;border-radius:8px;padding:9px}.kv small{display:block;color:var(--muted);font-size:11px}.kv b{display:block;margin-top:3px}.reason{margin-top:10px;font-size:13px;line-height:1.6}.professional{display:none}.professional.show{display:block}.simple.hide{display:none}.tabs{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}.tabs button{border:1px solid var(--line);background:#fff;border-radius:9px;padding:8px 12px}.tabs button.active{background:#eaf2ff;color:#175cd3;border-color:#b2ccff}.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:12px}.table{width:100%;border-collapse:collapse;font-size:13px;min-width:760px}.table th,.table td{padding:10px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}.table th{background:#f8fafc;color:#475467}.notice{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:10px 12px;font-size:12px;color:#9a3412;line-height:1.6}.case{border:1px solid var(--line);border-radius:12px;padding:13px;margin-top:9px}.case b{display:block;margin-bottom:5px}.formula{font-family:Georgia,"Times New Roman",serif;font-size:18px;margin:10px 0;padding:7px 10px;background:#f8fafc;border-radius:8px}.footer{color:#98a2b3;font-size:12px;text-align:center;padding:25px}.hide{display:none!important}@media(max-width:850px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.topin{align-items:flex-start;flex-direction:column}.kv{grid-template-columns:1fr 1fr}.hero h1{font-size:23px}}@media(max-width:480px){.stats,.row,.row3,.kv{grid-template-columns:1fr}.wrap{padding:0 10px}.card{padding:14px}}
+:root {
+  --bg: #f5f7fa;
+  --card: #ffffff;
+  --text: #172033;
+  --muted: #667085;
+  --line: #e6eaf0;
+  --blue: #1677ff;
+  --blue2: #0b5cff;
+  --green: #16a34a;
+  --orange: #f59e0b;
+  --red: #dc2626;
+  --shadow: 0 10px 30px rgba(15, 23, 42, .07);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+}
+
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+
+.top {
+  background: #101828;
+  color: #fff;
+  padding: 18px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.topin {
+  max-width: 1180px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand b { font-size: 19px; }
+.brand span {
+  display: block;
+  color: #aab4c3;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+.modes {
+  display: flex;
+  background: #1d2939;
+  border: 1px solid #344054;
+  border-radius: 12px;
+  padding: 4px;
+}
+
+.modes button {
+  border: 0;
+  background: transparent;
+  color: #cbd5e1;
+  padding: 9px 16px;
+  border-radius: 9px;
+}
+
+.modes button.active {
+  background: #fff;
+  color: #101828;
+  font-weight: 700;
+}
+
+.wrap {
+  max-width: 1180px;
+  margin: 22px auto;
+  padding: 0 16px;
+}
+
+.hero {
+  background: linear-gradient(135deg, #0f172a, #183b73);
+  color: #fff;
+  border-radius: 20px;
+  padding: 26px 28px;
+  box-shadow: var(--shadow);
+  margin-bottom: 18px;
+}
+
+.hero h1 { margin: 0 0 8px; font-size: 28px; }
+.hero p { margin: 0; color: #cbd5e1; }
+
+.grid {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 18px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+.card h2, .card h3 { margin: 0 0 14px; }
+.field { margin: 12px 0; }
+.field label {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.row3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.input, .select {
+  width: 100%;
+  border: 1px solid #d0d5dd;
+  border-radius: 9px;
+  padding: 10px 11px;
+  background: #fff;
+  outline: none;
+}
+
+.input:focus, .select:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(22, 119, 255, .12);
+}
+
+.primary {
+  width: 100%;
+  border: 0;
+  border-radius: 10px;
+  background: var(--blue);
+  color: #fff;
+  font-weight: 700;
+  padding: 12px;
+  margin-top: 8px;
+}
+
+.primary:hover { background: var(--blue2); }
+
+.ghost {
+  border: 1px solid #d0d5dd;
+  background: #fff;
+  border-radius: 9px;
+  padding: 9px 12px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.stat {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 13px;
+  background: #fafbfc;
+}
+
+.stat small { color: var(--muted); }
+.stat b { display: block; font-size: 20px; margin-top: 5px; }
+.result { margin-top: 14px; }
+
+.rec {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 15px;
+  margin-top: 11px;
+  background: #fff;
+}
+
+.rec.best {
+  border: 2px solid #7aaeff;
+  background: #f7fbff;
+}
+
+.tag {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 11px;
+  background: #eef4ff;
+  color: #175cd3;
+  margin-right: 5px;
+}
+
+.tag.ok { background: #ecfdf3; color: #067647; }
+.tag.warn { background: #fffaeb; color: #b54708; }
+.tag.bad { background: #fef3f2; color: #b42318; }
+
+.recHead {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.rec h3 { margin: 0 0 6px; font-size: 16px; }
+.score { font-size: 22px; font-weight: 800; color: var(--blue); }
+.muted { color: var(--muted); font-size: 13px; }
+
+.kv {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.kv div {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 9px;
+}
+
+.kv small {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.kv b { display: block; margin-top: 3px; }
+.reason { margin-top: 10px; font-size: 13px; line-height: 1.6; }
+.professional { display: none; }
+.professional.show { display: block; }
+.simple.hide { display: none; }
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.tabs button {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 9px;
+  padding: 8px 12px;
+}
+
+.tabs button.active {
+  background: #eaf2ff;
+  color: #175cd3;
+  border-color: #b2ccff;
+}
+
+.tablewrap {
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  min-width: 760px;
+}
+
+.table th, .table td {
+  padding: 10px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.table th { background: #f8fafc; color: #475467; }
+
+.notice {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 12px;
+  color: #9a3412;
+  line-height: 1.6;
+}
+
+.case {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 13px;
+  margin-top: 9px;
+}
+
+.case b { display: block; margin-bottom: 5px; }
+.formula {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  margin: 10px 0;
+  padding: 7px 10px;
+  background: #f8fafc;
+  border-radius: 8px;
+}
+
+.footer {
+  color: #98a2b3;
+  font-size: 12px;
+  text-align: center;
+  padding: 25px;
+}
+
+.hide { display: none !important; }
+
+@media (max-width: 850px) {
+  .grid { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .topin { align-items: flex-start; flex-direction: column; }
+  .kv { grid-template-columns: 1fr 1fr; }
+  .hero h1 { font-size: 23px; }
+}
+
+@media (max-width: 480px) {
+  .stats, .row, .row3, .kv { grid-template-columns: 1fr; }
+  .wrap { padding: 0 10px; }
+  .card { padding: 14px; }
+}
 </style>
 </head>
 <body>
 <header class="top"><div class="topin">
-  <div class="brand"><b>Vision Select · 机器视觉工程选型助手</b><span>公开资料辅助选型 · V5</span></div>
+  <div class="brand"><b>Vision Select · 机器视觉工程选型助手</b><span>公开资料辅助选型 · V5.1</span></div>
   <div class="modes">
     <button id="simpleBtn" class="active">简约快速选型</button>
     <button id="proBtn">专业版</button>
@@ -23,6 +352,7 @@ button,input,select{font:inherit}button{cursor:pointer}.top{background:#101828;c
 <section class="hero">
   <h1 id="heroTitle">简约快速选型</h1>
   <p id="heroText">输入项目核心参数，快速得到相机 + 镜头候选方案。支持公开型号辅助筛选。</p>
+  <div style="margin-top:10px;font-size:12px;color:#dbeafe">当前内置：2+ 相机条目 · 18 镜头条目 · 3 个案例</div>
 </section>
 
 <div class="grid">
@@ -197,10 +527,47 @@ function scoreLens(l,fw,fh,wd,sW,sH,prec,typePref){
   const diff=Math.abs((l.mag||reqMag)-reqMag)/(reqMag||1);
   return 92-Math.min(diff*80,70);
 }
-function run(fw,fh,wd,prec,typePref,camera){
-  const need=calcNeed(fw,fh,prec);
-  const candidates=lenses.map(l=>({l,score:scoreLens(l,fw,fh,wd,camera.sensorW,camera.sensorH,prec,typePref)})).filter(x=>x.score>-100).sort((a,b)=>b.score-a.score);
-  return {need,candidates:candidates.slice(0,5),camera,fw,fh,wd,prec};
+function run(fw, fh, wd, prec, typePref, camera) {
+  const need = calcNeed(fw, fh, prec);
+
+  // 第一层：严格满足 WD / 类型 / FOV 的方案。
+  const strict = lenses
+    .map(l => ({
+      l,
+      score: scoreLens(l, fw, fh, wd, camera.sensorW, camera.sensorH, prec, typePref)
+    }))
+    .filter(x => x.score > -100)
+    .sort((a, b) => b.score - a.score);
+
+  if (strict.length) {
+    return { need, candidates: strict.slice(0, 5), camera, fw, fh, wd, prec, exact: true };
+  }
+
+  // 第二层：没有完全匹配时，仍显示“最接近候选”，避免页面出现空白。
+  // 这类结果明确标注为“近似候选”，不能直接作为最终采购型号。
+  const near = lenses
+    .filter(l => typePref === "all" || l.type === typePref)
+    .map(l => {
+      let penalty = 0;
+      if (wd < l.minWD) penalty += Math.min(60, (l.minWD - wd) / Math.max(wd, 1) * 80);
+      if (Number.isFinite(l.maxWD) && wd > l.maxWD) penalty += Math.min(60, (wd - l.maxWD) / Math.max(wd, 1) * 80);
+
+      if (l.type === "fixed") {
+        const fov = getFovFixed(l, camera.sensorW, camera.sensorH, wd);
+        const widthRatio = fw / Math.max(fov.w, 0.001);
+        const heightRatio = fh / Math.max(fov.h, 0.001);
+        penalty += Math.min(80, Math.max(0, widthRatio - 1) * 45);
+        penalty += Math.min(80, Math.max(0, heightRatio - 1) * 45);
+      } else {
+        const reqMag = Math.max(camera.sensorW / Math.max(fw, 0.001), camera.sensorH / Math.max(fh, 0.001));
+        penalty += Math.min(80, Math.abs((l.mag || reqMag) - reqMag) / Math.max(reqMag, 0.001) * 70);
+      }
+
+      return { l, score: Math.max(1, 68 - penalty) };
+    })
+    .sort((a, b) => b.score - a.score);
+
+  return { need, candidates: near.slice(0, 5), camera, fw, fh, wd, prec, exact: false };
 }
 function renderResults(data){
   const {need, candidates, camera, fw, fh, wd, prec}=data;
@@ -208,14 +575,14 @@ function renderResults(data){
   document.getElementById("needPxH").textContent=Math.ceil(need.y).toLocaleString()+" px";
   document.getElementById("mag").textContent=(Math.max(camera.sensorW/(fw||1),camera.sensorH/(fh||1))).toFixed(3)+"×";
   const status=document.getElementById("status");
-  status.textContent=candidates.length?"已找到":"暂无匹配";
-  status.style.color=candidates.length?"#16a34a":"#dc2626";
+  status.textContent=candidates.length?(data.exact?"已找到":"已找到近似候选"):"暂无匹配";
+  status.style.color=candidates.length?(data.exact?"#16a34a":"#b54708"):"#dc2626";
   const el=document.getElementById("results");
   if(!candidates.length){
     el.innerHTML='<div class="notice">当前内置数据库没有足够匹配的镜头。请在专业版补充该系列的官方参数表；软件不会把未知系列强行套用成普通焦距规则。</div>';
     return;
   }
-  el.innerHTML=candidates.map((x,i)=>{
+  el.innerHTML = (!data.exact ? '<div class="notice"><b>当前没有完全匹配方案。</b>下面显示的是按类型、工作距离、视野接近程度排序的“近似候选”，仅用于继续筛选；请以具体镜头 Datasheet 和现场成像验证为准。</div>' : '') + candidates.map((x,i)=>{
     const l=x.l;
     const f=l.type==="fixed"?`焦距 ${l.f} mm`:`倍率 ${(l.mag||0)}×`;
     const wdText=Number.isFinite(l.maxWD)?`${l.minWD} mm`:`≥ ${l.minWD} mm`;
@@ -333,23 +700,4 @@ if(name==="notice") el.innerHTML=`
 </div>
 <div class="case"><b>数据状态</b><div class="muted">已扩充 MER2-G / MER2-G-P 多个公开型号；S系列目前保留案例中的完整参数型号。其他系列继续按官方参数逐步补全，避免“只知道型号但不知道完整光学参数”时误算。</div></div>
 <div class="case"><b>建议</b><div class="muted">如果用于实习/内部工程选型，建议保留本声明；如果未来公开部署，建议进一步增加版本日期、官方资料链接、参数更新时间和“非官方工具”标识。</div></div>`;
-if(name==="rules") el.innerHTML='<div class="tablewrap"><table class="table"><tr><th>系列/族</th><th>类型</th><th>解析原则</th></tr>'+rules.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("")+'</table></div><div class="notice" style="margin-top:12px">未知型号不会自动猜字段含义。以后加入官方型号表时，应新增对应系列规则。</div>';
-}
-document.getElementById("simpleBtn").onclick=()=>setMode(false);
-document.getElementById("proBtn").onclick=()=>setMode(true);
-function setMode(pro){
- document.getElementById("simpleBtn").classList.toggle("active",!pro);document.getElementById("proBtn").classList.toggle("active",pro);
- document.getElementById("simplePanel").classList.toggle("hide",pro);document.getElementById("proPanel").classList.toggle("show",pro);
- document.getElementById("proDetails").classList.toggle("show",pro);
- document.getElementById("heroTitle").textContent=pro?"专业选型":"简约快速选型";
- document.getElementById("heroText").textContent=pro?"完整查看相机、镜头、案例和型号解析规则；普通定焦与倍率/远心镜头采用不同算法。":"输入项目核心参数，快速得到相机 + 镜头候选方案。";
- if(pro) doPro();
-}
-document.getElementById("calcBtn").onclick=doSimple;
-document.getElementById("proCalc").onclick=doPro;
-document.getElementById("loadCaseBtn").onclick=()=>loadCase(0);
-document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tabs button").forEach(x=>x.classList.remove("active"));b.classList.add("active");renderTab(b.dataset.tab)});
-fillCamera();renderTab("lenses");doSimple();
-</script>
-</body>
-</html>
+if(name==="rules") el.innerHTML='<
